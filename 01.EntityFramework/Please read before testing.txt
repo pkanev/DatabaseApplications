@@ -1,0 +1,26 @@
+Note to reader:
+In order for this to work, you will need to modify the Connection string, which can be found in the App.config file that is placed within every project. Otherwise VS will not be able to connect to the database. This happens because my SQL server is running on a separate virtual machine.
+You should enter the following connection string but you need to modify it first:
+1. Change data source=FSLAPTOP69\SQLEXPRESS; to data source=YOUR SERVER (probably .);
+2. If you are logging in with a windows username then delete 
+user id=admin;
+password=admin;
+Otherwise change the name of the id and password.
+
+This should make it work.
+Good luck.
+
+<connectionStrings>
+    <add name="SoftUniEntities" connectionString=
+	    "metadata=res://*/SoftUniEntities.csdl|res://*/SoftUniEntities.ssdl|res://*/SoftUniEntities.msl;
+	    provider=System.Data.SqlClient;
+	    provider connection string=&quot;
+	    data source=FSLAPTOP69\SQLEXPRESS;
+	    initial catalog=SoftUni;
+	    persist security info=True;
+	    user id=admin;
+	    password=admin;
+	    MultipleActiveResultSets=True;
+	    App=EntityFramework&quot;"
+	    providerName="System.Data.EntityClient" />
+  </connectionStrings>
